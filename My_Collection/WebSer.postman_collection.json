@@ -1,0 +1,397 @@
+{
+	"info": {
+		"_postman_id": "c382e78d-8cfd-47e8-b48c-6d778475ce4a",
+		"name": "WebSer",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20735716"
+	},
+	"item": [
+		{
+			"name": "jobs_get_task_2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"var jsonData = pm.response.json();\r",
+							"\r",
+							"postman.setEnvironmentVariable(\"json\", JSON.stringify(jsonData))"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "162.55.220.72:5021/jobs",
+					"host": [
+						"162",
+						"55",
+						"220",
+						"72"
+					],
+					"port": "5021",
+					"path": [
+						"jobs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "jobs_post_task_2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"job_id\":3}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "162.55.220.72:5021/jobs",
+					"host": [
+						"162",
+						"55",
+						"220",
+						"72"
+					],
+					"port": "5021",
+					"path": [
+						"jobs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_job_post_task_2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"job_id\": 3,\r\n\"j_data\":{{json}}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "23.88.52.139:5022/get_job",
+					"host": [
+						"23",
+						"88",
+						"52",
+						"139"
+					],
+					"port": "5022",
+					"path": [
+						"get_job"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "jobs_count_task_3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"var jsonData = pm.response.json();\r",
+							"//var jsonData = JSON.parse(responseBody);\r",
+							"//pm.environment.set(\"json\", JSON.stringify(json))\r",
+							"//jsonData = JSON.stringify(json);\r",
+							"\r",
+							"postman.setEnvironmentVariable(\"json\", JSON.stringify(jsonData))"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "162.55.220.72:5031/jobs_count",
+					"host": [
+						"162",
+						"55",
+						"220",
+						"72"
+					],
+					"port": "5031",
+					"path": [
+						"jobs_count"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_jobs_count_task_3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"//var jsonData = pm.response.json();\r",
+							"//var jsonData = JSON.parse(responseBody);\r",
+							"//pm.environment.set(\"json\", JSON.stringify(json))\r",
+							"//jsonData = JSON.stringify(json);\r",
+							"\r",
+							"//postman.setEnvironmentVariable(\"json\", JSON.stringify(jsonData))"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "23.88.52.139:5032/get_jobs_count",
+					"host": [
+						"23",
+						"88",
+						"52",
+						"139"
+					],
+					"port": "5032",
+					"path": [
+						"get_jobs_count"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "all_jobs_task_3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"//var jsonData = pm.response.json();\r",
+							"//var jsonData = JSON.parse(responseBody);\r",
+							"//pm.environment.set(\"json\", JSON.stringify(json))\r",
+							"//jsonData = JSON.stringify(json);\r",
+							"\r",
+							"//postman.setEnvironmentVariable(\"json\", JSON.stringify(jsonData))"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "162.55.220.72:5031/all_jobs",
+					"host": [
+						"162",
+						"55",
+						"220",
+						"72"
+					],
+					"port": "5031",
+					"path": [
+						"all_jobs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_all_jobs_task_3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"//var jsonData = pm.response.json();\r",
+							"//var jsonData = JSON.parse(responseBody);\r",
+							"//pm.environment.set(\"json\", JSON.stringify(json))\r",
+							"//jsonData = JSON.stringify(json);\r",
+							"\r",
+							"//postman.setEnvironmentVariable(\"json\", JSON.stringify(jsonData))"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "23.88.52.139:5032/get_all_jobs",
+					"host": [
+						"23",
+						"88",
+						"52",
+						"139"
+					],
+					"port": "5032",
+					"path": [
+						"get_all_jobs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add_jobs_task_3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"//var jsonData = pm.response.json();\r",
+							"//var jsonData = JSON.parse(responseBody);\r",
+							"//pm.environment.set(\"json\", JSON.stringify(json))\r",
+							"//jsonData = JSON.stringify(json);\r",
+							"\r",
+							"//postman.setEnvironmentVariable(\"json\", JSON.stringify(jsonData))"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n    \"firm_title\": \"red_watermelon\",\r\n    \"position_title\": \"Agronomist\",\r\n    \"skills\": [ \"sk_1\",\"sk_2\",\"sk_3\"],\r\n    \"description\": \"Planting cucumbers and tomatoes\",\r\n    \"Job Posting\": \"Vooot\",\r\n    \"Employee Status\": \"Manual QA\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "162.55.220.72:5031/add_job",
+					"host": [
+						"162",
+						"55",
+						"220",
+						"72"
+					],
+					"port": "5031",
+					"path": [
+						"add_job"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add_jobs_item_task_3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"//var jsonData = pm.response.json();\r",
+							"//var jsonData = JSON.parse(responseBody);\r",
+							"//pm.environment.set(\"json\", JSON.stringify(json))\r",
+							"//jsonData = JSON.stringify(json);\r",
+							"\r",
+							"//postman.setEnvironmentVariable(\"json\", JSON.stringify(jsonData))"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n    \"firm_title\": \"red_watermelon_11\",\r\n    \"position_title\": \"Agronomist_111\",\r\n    \"skills\": [ \"sk_1\",\"sk_2\",\"sk_3\"],\r\n    \"description\": \"Planting cucumbers and tomatoes\",\r\n    \"Job Posting\": \"Vooot\",\r\n    \"Employee Status\": \"Manual QA\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "23.88.52.139:5032/add_job_item",
+					"host": [
+						"23",
+						"88",
+						"52",
+						"139"
+					],
+					"port": "5032",
+					"path": [
+						"add_job_item"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

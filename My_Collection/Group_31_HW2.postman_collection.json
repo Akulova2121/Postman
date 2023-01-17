@@ -1,0 +1,406 @@
+{
+	"info": {
+		"_postman_id": "57765322-727b-4823-aa00-031dd57657a1",
+		"name": "Group_31_HW2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20735716"
+	},
+	"item": [
+		{
+			"name": "first",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/first",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"first"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user_info_3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"//Спарсить response body в json\r",
+							"    var Akulova = pm.response.json();\r",
+							"\r",
+							"//Спарсить request.\r",
+							"    let req = request.data\r",
+							"//name забрать из request\r",
+							"    let req_name=req.name;\r",
+							"//age забрать из request\r",
+							"    let req_age=req.age;\r",
+							"//salary забрать из request\r",
+							"    let req_salary= + req.salary;\r",
+							"\r",
+							"       \r",
+							"    console.log(\"resp_salary=\" +typeof Akulova.salary);\r",
+							"    console.log(\"req_salary=\" +typeof req_salary);\r",
+							"    //Вывести в консоль параметр family из response.\r",
+							"    console.log(\"resp_family=\" +typeof Akulova.family);\r",
+							"\r",
+							"//Проверить, что salary в ответе равно salary s request (salary забрать из request.)\r",
+							"pm.test(\"Name\", function () {\r",
+							"    pm.expect(Akulova.name).to.eql(req_name);\r",
+							"});\r",
+							"//Проверить, что age в ответе равно age s request (age забрать из request.)\r",
+							"pm.test(\"age\", function () {\r",
+							"    pm.expect(Akulova.age).to.eql(req_age);\r",
+							"});\r",
+							"// Проверить, что salary в ответе равно salary s request (salary забрать из request.)\r",
+							"pm.test(\"salary\", function () {\r",
+							"    pm.expect(Akulova.salary).to.eql(req_salary);\r",
+							"});\r",
+							"// Проверить что u_salary_1_5_year в ответе равно salary*4 (salary забрать из request)\r",
+							"pm.test(\"salary*4\", function () {\r",
+							"    pm.expect(Akulova.family.u_salary_1_5_year).to.eql(req_salary*4);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Luda",
+							"type": "text"
+						},
+						{
+							"key": "age",
+							"value": "38",
+							"type": "text"
+						},
+						{
+							"key": "salary",
+							"value": "50000",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/user_info_3",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"user_info_3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "object_info_3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"    var Akulova = pm.response.json();\r",
+							"    let get_params = pm.request.url.query.toObject();\r",
+							"    let req_name =  get_params.name;\r",
+							"    let req_age =  get_params.age;\r",
+							"    let req_salary= + get_params.salary;\r",
+							"    \r",
+							"      \r",
+							"    console.log(\"resp_family =\" +typeof Akulova.family);\r",
+							"    \r",
+							"pm.test(\"Name\", function () {       \r",
+							"    pm.expect(Akulova.name).to.eql(req_name);\r",
+							"});\r",
+							"pm.test(\"age\", function () {\r",
+							"    pm.expect(Akulova.age).to.eql(req_age);\r",
+							"});\r",
+							"pm.test(\"salary\", function () { \r",
+							"    pm.expect(Akulova.salary).to.eql(req_salary);\r",
+							"});\r",
+							"pm.test(\"Dog name\", function () { \r",
+							"    pm.expect(Akulova.family.pets.dog).to.have.property(\"name\");\r",
+							"});\r",
+							"pm.test(\"Dog age\", function () { \r",
+							"    pm.expect(Akulova.family.pets.dog).to.have.property(\"age\");\r",
+							"});\r",
+							"pm.test(\"Name Luky\", function () { \r",
+							"    pm.expect(Akulova.family.pets.dog.name).to.eql(\"Luky\");\r",
+							"});\r",
+							"pm.test(\"Age 4\", function () { \r",
+							"    pm.expect(Akulova.family.pets.dog.age).to.eql(4);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{url}}/object_info_3?name=Luda&age=38&salary=50000",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"object_info_3"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Luda"
+						},
+						{
+							"key": "age",
+							"value": "38"
+						},
+						{
+							"key": "salary",
+							"value": "50000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "object_info_4",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"    var Akulova = pm.response.json();\r",
+							"    let get_params = pm.request.url.query.toObject();\r",
+							"    let req_name =  get_params.name;\r",
+							"    let req_age =  + get_params.age;\r",
+							"    let req_salary = + get_params.salary;\r",
+							"\r",
+							"           \r",
+							"pm.test(\"Name\", function () {       \r",
+							"    pm.expect(Akulova.name).to.eql(req_name);\r",
+							"});\r",
+							"pm.test(\"age\", function () {\r",
+							"   pm.expect(Akulova.age).to.eql(req_age);  \r",
+							"});\r",
+							"\r",
+							"   console.log(\"resp_salary[0]=\" + Akulova.salary[0]);\r",
+							"   console.log(\"resp_salary[1]=\" + Akulova.salary[1]);\r",
+							"   console.log(\"resp_salary[2]=\" + Akulova.salary[2]);\r",
+							"\r",
+							"\r",
+							"pm.test(\"Salary [0]\", function () {\r",
+							"   pm.expect(Akulova.salary[0]).to.eql(req_salary);  \r",
+							"});\r",
+							"    \r",
+							"pm.test(\"Salary[1]*2\", function () {\r",
+							"   pm.expect(+ Akulova.salary[1]).to.eql(req_salary*2);  \r",
+							"});\r",
+							"    \r",
+							"pm.test(\"Salary[1]*3\", function () {\r",
+							"   pm.expect(+ Akulova.salary[2]).to.eql(req_salary*3);  \r",
+							"});\r",
+							"\r",
+							"pm.environment.set(\"name\", \"Luda\");\r",
+							"pm.environment.set(\"age\", \"38\");\r",
+							"pm.environment.set(\"salary\", 500000);\r",
+							"\r",
+							"for (let i=0; i< Akulova.salary.length; i++) {\r",
+							"    console.log(i, Akulova.salary[i])\r",
+							"};"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{url}}/object_info_4?name=Luda&age=38&salary=50000",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"object_info_4"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Luda"
+						},
+						{
+							"key": "age",
+							"value": "38"
+						},
+						{
+							"key": "salary",
+							"value": "50000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user_info_2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var Akulova=pm.response.json();\r",
+							"let req=request.data;\r",
+							"let req_salary = + req.salary;\r",
+							"let req_age = + req.age;\r",
+							"\r",
+							"\r",
+							"pm.test(\"параметр start_qa_salary\", function () {\r",
+							"    pm.expect(Akulova).to.have.property(\"start_qa_salary\");\r",
+							"});\r",
+							"pm.test(\"параметр qa_salary_after_6_months\", function () {\r",
+							"    pm.expect(Akulova).to.have.property(\"qa_salary_after_6_months\");\r",
+							"});\r",
+							"pm.test(\"параметр qa_salary_after_12_months\", function () {\r",
+							"    pm.expect(Akulova).to.have.property(\"qa_salary_after_12_months\");\r",
+							"});\r",
+							"pm.test(\"параметр qa_salary_after_1.5_year\", function () {\r",
+							"    pm.expect(Akulova).to.have.property(\"qa_salary_after_1.5_year\");\r",
+							"});\r",
+							"pm.test(\"параметр qa_salary_after_3.5_years\", function () {\r",
+							"    pm.expect(Akulova).to.have.property(\"qa_salary_after_3.5_years\");\r",
+							"});\r",
+							"pm.test(\"person\", function () {\r",
+							"    pm.expect(Akulova).to.have.property(\"person\");\r",
+							"});\r",
+							"pm.test(\"start_qa_salary = salary\", function () {\r",
+							"    pm.expect(Akulova.start_qa_salary).to.eql(req_salary);\r",
+							"});\r",
+							"pm.test(\"qa_salary_after_6_months = salary*2\", function () {\r",
+							"    pm.expect(Akulova.qa_salary_after_6_months).to.eql(req_salary*2);\r",
+							"});\r",
+							"pm.test(\"qa_salary_after_12_months = salary*2.7\", function () {\r",
+							"    pm.expect(Akulova.qa_salary_after_12_months).to.eql(req_salary*2.7);\r",
+							"});\r",
+							"pm.test(\"qa_salary_after_1.5_year = salary*3.3\", function () {\r",
+							"    pm.expect(Akulova[\"qa_salary_after_1.5_year\"]).to.eql(req_salary*3.3);\r",
+							"});\r",
+							"pm.test(\"qa_salary_after_3.5_years = salary*3.8\", function () {\r",
+							"    pm.expect(Akulova[\"qa_salary_after_3.5_years\"]).to.eql(req_salary*3.8);\r",
+							"});\r",
+							"pm.test(\"u_age = age из request \", function () {\r",
+							"    pm.expect(Akulova.person.u_age).to.eql(req_age);\r",
+							"});\r",
+							"pm.test(\"параметр u_salary_5_years = salary*4.2 \", function () {\r",
+							"    pm.expect(Akulova.person.u_salary_5_years).to.eql(req_salary*4.2);\r",
+							"});\r",
+							"for(let i in Akulova.person) {\r",
+							"    console.log(i, Akulova.person[i])\r",
+							"};"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "{{name}}",
+							"type": "text"
+						},
+						{
+							"key": "age",
+							"value": "{{age}}",
+							"type": "text"
+						},
+						{
+							"key": "salary",
+							"value": "{{salary}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://162.55.220.72:5007/user_info_2",
+					"protocol": "http",
+					"host": [
+						"162",
+						"55",
+						"220",
+						"72"
+					],
+					"port": "5007",
+					"path": [
+						"user_info_2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
